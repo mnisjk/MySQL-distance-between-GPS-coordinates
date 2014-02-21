@@ -9,7 +9,7 @@
  * @param lon1  (double)   longitude of origin
  * @param lat2  (double)   latitude of destination
  * @param lon2  (double)   longitude of destination
- * @param unit  (double)   MILE, MI for miles or KILOMETER, KM for kilometers
+ * @param unit  (enum)     MILE, MI for miles or KILOMETER, KM for kilometers
  * @return      (double)   Distance between the two points in the units specified.
  *
  * This function is very helpful for ordering a list of results by nearst first with:
