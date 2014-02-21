@@ -1,4 +1,4 @@
-MySQL-distance-between-GPS-coordinates
+MySQL Distance Between GPS Coordinates
 ======================================
 
 This MySQL function adds `DISTANCE()` to calculate the distance between two GPS locations using the Haversine formula.
@@ -6,6 +6,7 @@ This MySQL function adds `DISTANCE()` to calculate the distance between two GPS 
 
 ### Function Signature
 
+```
 /*
  * @param lat1  (double)   latitude of origin
  * @param lon1  (double)   longitude of origin
@@ -14,8 +15,8 @@ This MySQL function adds `DISTANCE()` to calculate the distance between two GPS 
  * @param unit  (double)   MILE, MI for miles or KILOMETER, KM for kilometers
  * @return      (double)   Distance between the two points in the units specified.
  */
-CREATE FUNCTION DISTANCE( lat1 DOUBLE, lon1 DOUBLE, lat2 DOUBLE, lon2 DOUBLE, unit ENUM( 'MILE', 'KILOMETER', 'MI', 'KM' ) )
-
+FUNCTION DISTANCE( lat1 DOUBLE, lon1 DOUBLE, lat2 DOUBLE, lon2 DOUBLE, unit ENUM( 'MILE', 'KILOMETER', 'MI', 'KM' ) )
+```
 
 ### Example usage
 
@@ -27,9 +28,9 @@ mysql> SELECT DISTANCE( 37.7756, -122.4193, 40.71448, -74.00598, 'MI' );
 
 Find the two closet cities (in our table) to Paris, France
 ```
-mysql> SELECT name FROM cities ORDER BY DISTANCE( 48.856638, 2.352241, cities.lat, cities.lon, 'KM' ) LIMIT 2;
-Geneva
-Barcelona
+mysql> SELECT city, country FROM cities ORDER BY DISTANCE( 48.856638, 2.352241, cities.lat, cities.lon, 'KM' ) ASC LIMIT 2;
+Geneva       Switzerland
+Barcelona    Spain
 ```
 
 ### Caveat
