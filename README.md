@@ -26,7 +26,7 @@ mysql> SELECT DISTANCE( 37.7756, -122.4193, 40.71448, -74.00598, 'MI' );
 2565.80921930121
 ```
 
-Find the two closet cities (in our table) to Paris, France
+Find the two closest cities (in our table) to Paris, France
 ```
 mysql> SELECT city, country FROM cities ORDER BY DISTANCE( 48.856638, 2.352241, cities.lat, cities.lon, 'KM' ) ASC LIMIT 2;
 Geneva       Switzerland
